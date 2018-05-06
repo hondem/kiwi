@@ -1,0 +1,100 @@
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+@mixin transition($seconds) {
+    transition:$seconds;
+    -webkit-transition:$seconds;
+    -moz-transition:$seconds;
+}
+
+html, body{
+    padding:0px;
+    margin:0px;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+#app{
+    .form-wrapper{
+        position:relative;
+        width:100%;
+        height:450px;
+        background:{
+            color:white;
+            image:url('../../images/background.jpg');
+            position:center center;
+            size:cover;
+        }
+
+        .form-content{
+            position:absolute;
+            top:50%;
+            left:0px;
+            right:0px;
+            @include transform(translate(0%, -50%));
+        }
+
+        .form-send{
+            text-align:center;
+            .form-send-button{
+                margin-left:auto;
+                margin-right:auto;
+                margin-top:325px;
+                background-color:white;
+                border:none;
+                border-radius:5px;
+                color:#74b9ff;
+                padding:20px 50px;
+                text-align:center;
+                font:{
+                    family:Roboto;
+                    size:15px;
+                }
+            }
+        }
+    }
+
+    .input-autocomplete{
+        position:relative;
+        display:inline-block;
+        width:100%;
+        height:50px;
+
+        .input-autocomplete-input{
+            width:100%;
+            height:100%;
+            input[type="text"]{
+                width:100%;
+                height:100%;
+                padding:20px;
+            }
+        }
+
+        .input-autocomplete-suggestions{
+            position:absolute;
+            top:50px;
+            left:0px;
+            right:0px;
+            z-index:10;
+            .input-suggestion{
+                width:100%;
+                height:30px;
+                background-color:white;
+                padding:0px 20px;
+                line-height:30px;
+                overflow:hidden;
+
+                &:hover{
+                    cursor:pointer;
+                }
+            }
+        }
+    }
+
+    .results{
+        margin-top:50px;
+    }
+}
